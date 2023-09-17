@@ -20,7 +20,7 @@ const Navbar = ({ colour, alignment, edit }) => {
   const options = {
     method: 'POST',
     withCredentials: true,
-    url: `http://localhost:4000/auth/logout`,
+    url: `${process.env.REACT_APP_BASE_URL}/auth/logout`,
   }
 
   useEffect(() => {
