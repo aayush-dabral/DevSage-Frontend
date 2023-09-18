@@ -8,26 +8,45 @@ import Loader from '../Loader/Loader'
 import Footer from './Footer'
 import Navbar from './Navbar'
 
+import {Cloudinary} from "@cloudinary/url-gen";
+
+import {AdvancedImage} from '@cloudinary/react';
+import {fill} from "@cloudinary/url-gen/actions/resize";
+
 const Home = () => {
+
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: 'da2guof6i'
+    }
+  });
+
+  const myImage = cld.image('DevSage/homeBackground_adwpvw'); 
+
   const { state } = useContext(UserContext)
   const [loading, setLoading] = useState(false)
 
+  const [image, setImage] = useState('')
+
   useEffect(() => {
     setLoading(true);
+    setImage(myImage.toURL());
     setTimeout(() => {
       setLoading(false);
     }, 2000);
   }, [])
 
+  
+
   return (
 
-    <div className='bg-[#01080E] w-full'>
-      {loading ? <Loader bg={'bg-[#01080E]'} />
+    <div id='hero' className='bg-[#01080E] w-full'>
+      {loading && image!=='' ? <Loader bg={'bg-[#01080E]'} />
         :
         <>
           {/* <Loader /> */}
           <Navbar colour={'transparent'} alignment={'mr-20'} />
-          <section className="h-screen w-full bg-cover bg-center flex justify-center items-center" style={{ backgroundImage: `url(${homeBackground})` }}>
+          <section className="h-screen w-full bg-cover bg-center flex justify-center items-center" style={{ backgroundImage: `url(${image})` }}>
             <div className="flex flex-col text-white items-center font-montserrat mt-16">
               <h1 className='text-4xl mb-3
               md:text-[3.25rem] font-medium '>Dev Sage</h1>
