@@ -294,7 +294,7 @@ const Main = () => {
                         :
                         <div className='relative h-full w-full'>
                             <Loader bg={'bg-[#000D15]'} alignment={'top-[45%]'}/>
-                        </div>
+                        </div> 
                     }
 
 
