@@ -283,7 +283,7 @@ const Main = () => {
                         <Editor
                             height={'100%'}
                             width={`100%`}
-                            
+                            loading={<Loader/>}
                             language={language.value || "javascript"}
                             value={value}
                             theme={theme.value}
