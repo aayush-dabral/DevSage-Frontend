@@ -22,6 +22,7 @@ const Home = () => {
   });
 
   const myImage = cld.image('DevSage/homeBackground_adwpvw'); 
+  myImage.format('auto');
 
   const { state } = useContext(UserContext)
   const [loading, setLoading] = useState(false)
