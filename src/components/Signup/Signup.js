@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {useNavigate} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import homeBackground from '../../images/homeBackground.jpg'
 import axios from 'axios'
 import { toast } from 'react-toastify'
@@ -112,7 +112,7 @@ const Signup = () => {
                     </div>
                     <button onClick={onClick} className='w-[90%] text-black bg-[#1AA2D9] rounded-3xl py-2 font-bold'>Sign Up</button>
                 </form>
-                <p className='mt-1 text-xl font-light'>Already have an account ? <span className='text-[#1AA2D9] font-medium'>Login</span></p>
+                <p className='mt-1 text-xl font-light'>Already have an account ? <Link to='/Signup'><span className='text-[#1AA2D9] font-medium'>Login</span></Link></p>
             </div>
         </section>
     )

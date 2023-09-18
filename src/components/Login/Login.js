@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import homeBackground from '../../images/homeBackground.jpg'
 import axios from 'axios'
 
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { UserContext } from '../../App'
@@ -130,7 +130,7 @@ const Login = () => {
                     </div>
                     <button onClick={onClick} className='w-[90%] text-black bg-[#1AA2D9] rounded-3xl py-2 font-bold'>Log In</button>
                 </form>
-                <p className='mt-4 text-xl font-light'>Don't have an account ? <span className='text-[#1AA2D9] font-medium'>Register</span></p>
+                <p className='mt-4 text-xl font-light'>Don't have an account ? <Link to='/Signup'><span className='text-[#1AA2D9] font-medium'>Register</span></Link></p>
             </div>
 
         </section>        
