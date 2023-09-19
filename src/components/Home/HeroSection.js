@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { BsArrowDownCircle } from 'react-icons/bs'
 import homeBackground from '../../images/homeBackground.jpg'
 import { Link } from 'react-router-dom'
@@ -22,7 +22,19 @@ const Home = ({image}) => {
     }, 2000);
   }, [])
 
-  
+  const sectionRef = useRef(null)
+
+  const handleScrollToSection = () => {
+     // Calculate the offset to scroll to the div after the current section
+     const currentSectionOffset = sectionRef.current.offsetTop;
+     const nextSectionOffset = currentSectionOffset + sectionRef.current.offsetHeight;
+ 
+     // Scroll to the next section (div after the section)
+     window.scrollTo({
+       top: nextSectionOffset,
+       behavior: 'smooth'
+     });
+  };
 
   return (
 
@@ -32,14 +44,14 @@ const Home = ({image}) => {
         <>
           {/* <Loader /> */}
           <Navbar colour={'transparent'} alignment={'mr-20'} />
-          <section className="h-screen w-full bg-cover bg-center flex justify-center items-center" style={{ backgroundImage: `url(${image})` }}>
+          <section ref={sectionRef} className="h-screen w-full bg-cover bg-center flex justify-center items-center" style={{ backgroundImage: `url(${image})` }}>
             <div className="flex flex-col text-white items-center font-montserrat mt-16">
               <h1 className='text-4xl mb-3
               md:text-[3.25rem] font-medium '>Dev Sage</h1>
               <div className='w-[34%] h-[3px] bg-white mt-2 mb-4' />
               <p className='text-xl
               md:text-2xl font-light'>Your personal coding playground</p>
-              <BsArrowDownCircle size={30} className='my-4' />
+              <BsArrowDownCircle size={30} className='my-4 hover:text-[#1AA2D9] cursor-pointer' onClick={handleScrollToSection}/>
             </div>
           </section>
           <div className='bg-[#01080E] text-white text-center mx-auto pb-64 mt-44 font-light w-[80%]

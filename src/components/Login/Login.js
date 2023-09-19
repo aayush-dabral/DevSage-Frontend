@@ -130,7 +130,7 @@ const Login = ({image}) => {
                     </div>
                     <button onClick={onClick} className='w-[90%] text-black bg-[#1AA2D9] rounded-3xl py-2 font-bold'>Log In</button>
                 </form>
-                <p className='mt-4 text-xl font-light'>Don't have an account ? <Link to='/Signup'><span className='text-[#1AA2D9] font-medium'>Register</span></Link></p>
+                <p className='mt-4 text-lg font-light'>Don't have an account ? <Link to='/Signup'><span className='text-[#1AA2D9] font-medium'>Register</span></Link></p>
             </div>
 
         </section>        

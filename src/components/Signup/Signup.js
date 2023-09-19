@@ -112,7 +112,7 @@ const Signup = ({image}) => {
                     </div>
                     <button onClick={onClick} className='w-[90%] text-black bg-[#1AA2D9] rounded-3xl py-2 font-bold'>Sign Up</button>
                 </form>
-                <p className='mt-1 text-xl font-light'>Already have an account ? <Link to='/Login'><span className='text-[#1AA2D9] font-medium'>Login</span></Link></p>
+                <p className='mt-4 text-lg font-light'>Already have an account ? <Link to='/Login'><span className='text-[#1AA2D9] font-medium'>Login</span></Link></p>
             </div>
         </section>
     )
