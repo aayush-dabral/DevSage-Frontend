@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { UserContext } from '../../App'
 
-const Login = () => {
+const Login = ({image}) => {
 
     const [visible, setVisible] = useState(false);
 
@@ -104,7 +104,7 @@ const Login = () => {
     }
 
     return (
-        <section className="h-screen w-full bg-cover bg-center flex justify-center items-center" style={{ backgroundImage: `url(${homeBackground})` }}>
+        <section className="h-screen w-full bg-cover bg-center flex justify-center items-center" style={{ backgroundImage: `url(${image})` }}>
             <div className="flex flex-col text-white items-center font-montserrat  mb-26 backdrop-blur-lg backdrop-brightness-150 py-12
             w-[90%]
             md:w-[50%]

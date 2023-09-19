@@ -31,9 +31,22 @@ import ScrollToTop from './scroll/ScrollToTop';
 import EditQuestions from './components/Admin/EditQuestion';
 import ErrorBoundary from './utils/ErrorBoundary';
 
+import {Cloudinary} from "@cloudinary/url-gen";
+
 export const UserContext = createContext()
 
 function App() {
+
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: 'da2guof6i'
+    }
+  });
+
+  const myImage = cld.image('DevSage/homeBackground_adwpvw'); 
+  myImage.format('auto');
+
+  const [image, setImage] = useState('')
 
   //Checks whether the user is logged in or not
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -50,6 +63,9 @@ function App() {
   }
 
   useEffect(() => {
+
+    setImage(myImage.toURL());
+
     const check = async () => {
       const result = await axios.request(options)
 
@@ -86,22 +102,22 @@ function App() {
               <Route path="/" element={
                 <>
                   <ScrollToTop />
-                  <HeroSection colour={'transparent'} alignment={'mr-20'} />
+                  <HeroSection colour={'transparent'} alignment={'mr-20'} image={image}/>
                   {/* <Footer /> */}
                 </>
               }
               />
               <Route path="/login" element={
                 <>
-                  <Navbar colour={'transparent'} alignment={'mr-20'} edit={true}/>
-                  <Login />
+                  <Navbar colour={'transparent'} alignment={'mr-20'} edit={true} />
+                  <Login image={image}/>
                 </>
               }
               />
               <Route path="/signup" element={
                 <>
-                  <Navbar colour={'transparent'} alignment={'mr-20'} edit={true}/>
-                  <Signup />
+                  <Navbar colour={'transparent'} alignment={'mr-20'} edit={true} image={image}/>
+                  <Signup image={image}/>
                 </>
               }
               />

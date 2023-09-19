@@ -10,28 +10,13 @@ import Navbar from './Navbar'
 
 import {Cloudinary} from "@cloudinary/url-gen";
 
-import {AdvancedImage} from '@cloudinary/react';
-import {fill} from "@cloudinary/url-gen/actions/resize";
-
-const Home = () => {
-
-  const cld = new Cloudinary({
-    cloud: {
-      cloudName: 'da2guof6i'
-    }
-  });
-
-  const myImage = cld.image('DevSage/homeBackground_adwpvw'); 
-  myImage.format('auto');
+const Home = ({image}) => {
 
   const { state } = useContext(UserContext)
   const [loading, setLoading] = useState(false)
 
-  const [image, setImage] = useState('')
-
   useEffect(() => {
     setLoading(true);
-    setImage(myImage.toURL());
     setTimeout(() => {
       setLoading(false);
     }, 2000);

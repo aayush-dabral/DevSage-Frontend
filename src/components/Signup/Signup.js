@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 
-const Signup = () => {
+const Signup = ({image}) => {
 
     const [visible, setVisible] = useState(false);
     const [conVisible, setConVisible] = useState(false);
@@ -80,7 +80,7 @@ const Signup = () => {
     }
 
     return (
-        <section className="h-screen w-full bg-cover bg-center flex justify-center items-center" style={{ backgroundImage: `url(${homeBackground})` }}>
+        <section className="h-screen w-full bg-cover bg-center flex justify-center items-center" style={{ backgroundImage: `url(${image})` }}>
             <div className="flex flex-col text-white items-center font-montserrat mb-26 backdrop-blur-lg backdrop-brightness-150 mt-8 py-10
             w-[90%]
             md:w-[50%]
